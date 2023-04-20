@@ -1,14 +1,13 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import { ApolloProvider } from "@apollo/client";
-import client from "./config/graphql/apollo";
+import {Route, Routes, BrowserRouter, Router} from "react-router-dom";
+import HomePage from "./pages/HomePage";
 export default function App() {
-  return (
-      <ApolloProvider client={client}>
-        <Switch>
-          {/*<Route exact path="/" component={HomePage} />*/}
-          {/*<Route path="/blog/:slug" component={PostPage} />*/}
-        </Switch>
-      </ApolloProvider>
-  );
+    return (
+        <div className="App">
+            <Routes>
+                <Route exact path="/" element={<HomePage />}/>
+                {/*<Route path="/blog/:slug" component={PostPage} />*/}
+            </Routes>
+        </div>
+    );
 }
