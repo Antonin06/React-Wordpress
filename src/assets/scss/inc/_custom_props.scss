@@ -1,5 +1,5 @@
-@use 'sass:map';
 @use 'variables' as *;
+@use 'sass:map';
 
 :root {
     --padding-container: 2em;
@@ -15,10 +15,9 @@
     --secondary: #C0C87A;
     --tertiary: #ECBC53;
     --fade-yellow: #FCFBEA;
-    --white: #FFFCEA;
-    --real-white: #FFF;
+    --white: #FFF;
     --light-white: #FFFFFF33;
-    --black: #351518;
+    --black: #1b1b1b;
     --light-black: #444444;
     --border-color: #2210121A;
     --brown: #D3A76F;
@@ -43,9 +42,14 @@
     --font-family-sans-serif: sans-serif;
     --font-family-serif: serif;
     --font-family-title: 'DM Serif Display', var(--font-family-serif);
-    --font-family-base: 'DM Sans', var(--font-family-sans-serif);
+    --font-family-base: 'Ubuntu', var(--font-family-sans-serif);
 
     --swiper-overlay-background: rgba(0, 0, 0, .3);
 
     --section-spacer: 5rem;
+
+    //ScrollBar
+    --sb-track-color: #ffffff;
+    --sb-thumb-color: #000000;
+    --sb-size: 7px;
 }

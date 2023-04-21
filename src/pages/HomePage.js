@@ -1,14 +1,16 @@
 import React from "react";
-// import PostsList from "../components/PostsList";
-import {ISFRONTPAGE} from "../config/graphql/requests";
-import {useQuery} from "@apollo/client";
 import PostsList from "../components/PostList";
+import "../assets/scss/home.scss";
+
+
 export default function HomePage() {
 
     return (
-    <div className="page-container">
-      <h1>Blog</h1>
-      <PostsList />
+    <div id="home" className="">
+        <section className="container">
+            <h1>Blog</h1>
+            <PostsList />
+        </section>
     </div>
   );
 }

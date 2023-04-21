@@ -12,9 +12,8 @@ export default function PostsList() {
 	if (!postsFound) {
 		return <p>No matching posts found.</p>;
 	}
-	console.log(posts)
 	return (
-		<div className="posts-list">
+		<div className="posts-list grid">
 			{posts.map((post) => (
 				<PostCard key={post.databaseId} post={post}/>
 			))}

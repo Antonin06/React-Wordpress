@@ -1,5 +1,24 @@
 @use 'variables' as v;
 
+body {
+    font-family: var(--font-family-base);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    &::-webkit-scrollbar {
+        width: var(--sb-size);
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 0;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 0;
+    }
+}
+a {
+    text-decoration: none;
+}
+
 .container {
     width: 100%;
     padding: 0 var(--padding-container);

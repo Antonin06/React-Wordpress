@@ -15,16 +15,14 @@ export default function PostCard({ post }) {
 	} = post;
 
 	return (
-		<div className="post-card">
+		<Link to={`/blog/${slug}`} className="post-card">
 			{featuredImage ? (
 				<img
 					src={featuredImage.node.sourceUrl}
 					alt={featuredImage.node.altText}
 				/>
 			) : null}
-			<Link to={`/blog/${slug}`}>
-				<h3>{title}</h3>
-			</Link>
+			<h3>{title}</h3>
 			<div className="metadata">
 				<p>
 					<span className="text-bold">Date:</span> {formatDate(date)}
@@ -33,6 +31,6 @@ export default function PostCard({ post }) {
 					<span className="text-bold">Author:</span> {authorName}
 				</p>
 			</div>
-		</div>
+		</Link>
 	);
 }
