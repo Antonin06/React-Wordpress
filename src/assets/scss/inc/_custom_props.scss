@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+:root {
+    --padding-container: 2em;
+    --container: #{map.get($breakpoints, large)};
+    --container-medium: #{map.get($breakpoints, medium)};
+    --container-tablet: #{map.get($breakpoints, tablet-up)};
+    --container-small: #{map.get($breakpoints, tablet)};
+    --container-xsmall: #{map.get($breakpoints, small)};
+
+    --cubic-transition: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --primary: #E17D6F;
+    --secondary: #C0C87A;
+    --tertiary: #ECBC53;
+    --fade-yellow: #FCFBEA;
+    --white: #FFFCEA;
+    --real-white: #FFF;
+    --light-white: #FFFFFF33;
+    --black: #351518;
+    --light-black: #444444;
+    --border-color: #2210121A;
+    --brown: #D3A76F;
+
+    --light-gray: #F5F5F5;
+    --light-gray-2: #DDDDDD;
+    --icon-gray: #DFDFDF;
+    --light-gray-border: #B2B2B2;
+
+    --form-radius: 6px;
+
+    --font-size-extra-small: 0.8em; //12.8px
+    --font-size-small: 0.9em; //14.4px
+    --font-size-base: 16px;
+    --font-size-large: 1.125em; //18px
+    --font-size-extra-mega-large: 1.25rem; //20px
+    --font-size-extra-large: 2em; //32px
+
+    --font-weight-bold: 600;
+    --font-weight-regular: 400;
+
+    --font-family-sans-serif: sans-serif;
+    --font-family-serif: serif;
+    --font-family-title: 'DM Serif Display', var(--font-family-serif);
+    --font-family-base: 'DM Sans', var(--font-family-sans-serif);
+
+    --swiper-overlay-background: rgba(0, 0, 0, .3);
+
+    --section-spacer: 5rem;
+}

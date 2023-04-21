@@ -1,0 +1,26 @@
+@use 'variables' as v;
+
+.container {
+    width: 100%;
+    padding: 0 var(--padding-container);
+    margin: 0 auto;
+    max-width: calc(var(--container) + var(--padding-container) * 2 - 100px);
+}
+.container-medium {
+    max-width: calc(var(--container-medium) + var(--padding-container) * 2);
+}
+
+.container-tablet {
+    max-width: calc(var(--container-tablet) + var(--padding-container) * 2);
+    margin: 0 auto;
+    padding: 0 var(--padding-container);
+
+}
+
+.container-small {
+    max-width: calc(var(--container-small) + var(--padding-container) * 2);
+}
+
+.container-xsmall {
+    max-width: calc(var(--container-xsmall) + var(--padding-container) * 2);
+}
