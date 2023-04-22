@@ -9,8 +9,35 @@
 .home-blog {
     padding: 80px 0;
     .section-title {
-        margin-bottom: 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.875rem;
+        font-size: 1.875rem;
+        .swiper-btn-wrapper {
+            height: 50px;
+            position: relative;
+            width: 110px;
+        }
     }
+}
+
+.swiper-button-next, .swiper-button-prev {
+    background: var(--black);
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 50px;
+    top: 0;
+    margin-top: 0;
+    &::after {
+        font-size: 15px !important;
+    }
+}
+.swiper-button-next {
+    right: 0 !important;
+}
+.swiper-button-prev {
+    left: 0 !important;
 }
 
 .hero {

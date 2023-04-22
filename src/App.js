@@ -1,18 +1,19 @@
 import React from "react";
-import {Route, Routes, BrowserRouter, Router, Navigate} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Header from "./components/Header";
 import './assets/scss/style.scss';
-import * as PropTypes from "prop-types";
+import Blog from "./pages/Blog";
+import BlogLoadingMore from "./pages/BlogLoadingMore";
 
 export default function App() {
-    const shouldRedirect = true;
     return (
         <div className="App">
             <Header/>
             <Routes>
                 <Route exact path="/" element={<HomePage />}/>
-                {/*<Route path="/blog/:slug" component={PostPage} />*/}
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog-loading-more" element={<BlogLoadingMore />} />
             </Routes>
         </div>
     );

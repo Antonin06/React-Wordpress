@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../../assets/scss/loop/post-card.scss'
 
 const formatDate = (date) => new Date(date).toLocaleDateString();
 

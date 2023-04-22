@@ -1,15 +1,27 @@
 import {gql} from "@apollo/client";
+import {pageInfo} from './fragmentsRequests';
 
 //https://www.wpgraphql.com/2021/12/23/query-any-page-by-its-path-using-wpgraphql
 
 //HOMEPAGE
 export const ALL_POSTS = gql`
-    query ALL_POSTS($int: Int) {
-        posts(first: $int) {
-            nodes {
-                title
-                databaseId
-                date
+    query ALL_POSTS(
+        $first: Int
+        $last: Int
+        $after: String
+        $before: String
+        ) {
+        posts(first: $first, last: $last, after: $after, before: $before) {
+            pageInfo { hasNextPage hasPreviousPage startCursor endCursor }
+            edges { 
+                cursor
+                node {
+                    id
+                    postId
+                    title
+                }
+            }
+            nodes { title databaseId date slug
                 author {
                     node {
                         name
@@ -22,7 +34,60 @@ export const ALL_POSTS = gql`
                         slug
                     }
                 }
-                slug
+            }
+        }
+    }
+`;
+export const HOME_POSTS = gql`
+    query HOME_POSTS(
+        $first: Int
+        $last: Int
+        $after: String
+        $before: String
+        ) {
+        posts(first: $first, last: $last, after: $after, before: $before) {
+            pageInfo { hasNextPage hasPreviousPage startCursor endCursor }
+            edges { 
+                cursor
+                node {
+                    id
+                    postId
+                    title
+                }
+            }
+            nodes { title databaseId date slug
+                author {
+                    node {
+                        name
+                    }
+                }
+                featuredImage {
+                    node {
+                        altText
+                        sourceUrl
+                        slug
+                    }
+                }
+            }
+        }
+    }
+`;
+
+export const POSTS_LOAD_MORE = gql`
+    query POSTS_LOAD_MORE(
+        $size: Int
+        $offset: Int
+    ) {
+        posts(where: {offsetPagination: {size: $size , offset: $offset}}) {
+            pageInfo {
+                offsetPagination {
+                    hasMore hasPrevious total
+                }
+            }
+            nodes { 
+                title databaseId date slug 
+                author { node { name } } 
+                featuredImage { node { altText sourceUrl slug } } 
             }
         }
     }
