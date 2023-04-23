@@ -1,5 +1,5 @@
 import {gql} from "@apollo/client";
-import {pageInfo} from './fragmentsRequests';
+// import {pageInfo} from './fragmentsRequests';
 
 //https://www.wpgraphql.com/2021/12/23/query-any-page-by-its-path-using-wpgraphql
 
@@ -121,7 +121,26 @@ export const GET_MENU_BY_SLUG = gql`
         }
     }
 `;
-
+export const GET_POST_BY_SLUG = gql`
+    query getPostBySlug($id: ID!) {
+        post(id: $id, idType: SLUG) {
+            title
+            date
+            content
+            categories {
+                nodes {
+                    slug
+                    name
+                }
+            }
+            author {
+                node {
+                    name
+                }
+            }
+        }
+    }
+`;
 export const MENU_ITEMS = gql`
     query GETMENUITEMS($slug: MenuLocationEnum) {
         menuItems(where: {location: $slug}) {

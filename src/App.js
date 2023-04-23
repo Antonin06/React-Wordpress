@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import './assets/scss/style.scss';
 import Blog from "./pages/Blog";
 import BlogLoadingMore from "./pages/BlogLoadingMore";
+import SingleBlog from "./pages/SingleBlog";
 
 export default function App() {
     return (
@@ -13,6 +14,7 @@ export default function App() {
             <Routes>
                 <Route exact path="/" element={<HomePage />}/>
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<SingleBlog/>} />
                 <Route path="/blog-loading-more" element={<BlogLoadingMore />} />
             </Routes>
         </div>
