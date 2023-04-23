@@ -1,21 +1,20 @@
 import React from "react";
-import {useQuery} from "@apollo/client";
-import PostList from "./PostList";
-import {HOME_POSTS} from "./../config/graphql/requests";
+import {useQuery, NetworkStatus} from "@apollo/client";
+import {HOME_POSTS} from "../../config/graphql/requests";
+import HomePostsList from "./HomePostList";
 
 export default function HomePosts(props) {
     const slider = Boolean(props?.slider);
-    // console.log(props)
+    console.log(props)
     const variables = {
         first: props?.nbPosts ? props.nbPosts : 10,
-        last: null,
-        after: null,
-        before: null
     };
     // console.log(variables)
-    const { data, error, loading, fetchMore } = useQuery(HOME_POSTS, {
-        variables
+    const { data, error, loading, refetch, networkStatus } = useQuery(HOME_POSTS, {
+        variables,
+        notifyOnNetworkStatusChange: true
     });
+    if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
 
     if (error) {
         return <pre>{JSON.stringify(error)}</pre>;
@@ -24,13 +23,12 @@ export default function HomePosts(props) {
     if (loading) {
         return null;
     }
-
+    console.log(data)
     return (
-        <PostList
+        <HomePostsList
             error={error}
             loading={loading}
             data={data}
-            fetchMore={fetchMore}
             slider={slider}
             nbPosts={props?.nbPosts ? props?.nbPosts : 10}
         />

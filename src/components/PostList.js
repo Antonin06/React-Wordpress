@@ -26,11 +26,7 @@ export default function PostsList({data, error, loading, fetchMore, slider, nbPo
 	// const updateQuery = (previousResult, { fetchMoreResult }) => {
 	// 	return fetchMoreResult.posts.edges.length ? fetchMoreResult : previousResult;
 	// };
-	let {dd} = nbPosts;
-	console.log(dd)
 	const { posts } = data;
-	console.log(posts)
-	console.log(posts.pageInfo.startCursor)
 	return (
 		<div>
 			<h2>Post List</h2>

@@ -4,7 +4,7 @@ import "../assets/scss/home.scss";
 import {GETNODEBYURI} from "../config/graphql/requests";
 import {useQuery} from "@apollo/client";
 import {Link} from "react-router-dom";
-import HomePosts from "../components/Posts";
+import HomePosts from "../components/Home/HomePosts";
 
 
 export default function HomePage() {

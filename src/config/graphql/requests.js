@@ -40,21 +40,9 @@ export const ALL_POSTS = gql`
 `;
 export const HOME_POSTS = gql`
     query HOME_POSTS(
-        $first: Int
-        $last: Int
-        $after: String
-        $before: String
-        ) {
-        posts(first: $first, last: $last, after: $after, before: $before) {
-            pageInfo { hasNextPage hasPreviousPage startCursor endCursor }
-            edges { 
-                cursor
-                node {
-                    id
-                    postId
-                    title
-                }
-            }
+    $first: Int
+    ){
+        posts(first: $first) {
             nodes { title databaseId date slug
                 author {
                     node {
@@ -75,19 +63,34 @@ export const HOME_POSTS = gql`
 
 export const POSTS_LOAD_MORE = gql`
     query POSTS_LOAD_MORE(
-        $size: Int
-        $offset: Int
+        $first: Int
+        $last: Int
+        $after: String
+        $before: String
     ) {
-        posts(where: {offsetPagination: {size: $size , offset: $offset}}) {
-            pageInfo {
-                offsetPagination {
-                    hasMore hasPrevious total
+        posts(first: $first, last: $last, after: $after, before: $before) {
+            pageInfo { hasNextPage hasPreviousPage startCursor endCursor }
+            edges {
+                cursor
+                node {
+                    id
+                    postId
+                    title
                 }
             }
-            nodes { 
-                title databaseId date slug 
-                author { node { name } } 
-                featuredImage { node { altText sourceUrl slug } } 
+            nodes { title databaseId date slug
+                author {
+                    node {
+                        name
+                    }
+                }
+                featuredImage {
+                    node {
+                        altText
+                        sourceUrl
+                        slug
+                    }
+                }
             }
         }
     }

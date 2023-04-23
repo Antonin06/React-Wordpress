@@ -1,7 +1,7 @@
 import React from "react";
 import {useQuery} from "@apollo/client";
 import PostList from "../PostList";
-import {ALL_POSTS, POSTS_LOAD_MORE} from "./../../config/graphql/requests";
+import {POSTS_LOAD_MORE} from "./../../config/graphql/requests";
 import PostListLoadMore from "./PostListLoadMore";
 
 export default function PostsLoadingMore(props) {
@@ -14,7 +14,7 @@ export default function PostsLoadingMore(props) {
         before: null
     };
     // console.log(variables)
-    const { data, error, loading, fetchMore } = useQuery(ALL_POSTS, {
+    const { data, error, loading, fetchMore } = useQuery(POSTS_LOAD_MORE, {
         variables
     });
 
